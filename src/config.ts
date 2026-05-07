@@ -20,7 +20,9 @@ const config: SiteConfig = {
         headline: 'Seu melhor visual começa aqui',
         subheadline: 'Corte, barba e tratamentos com quem entende do ofício.',
         ctaText: 'Agendar horário',
+        backgroundImage: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&auto=format&fit=crop',
     },
+
 
     services: [
         { id: 'haircut', name: 'Corte', duration: 45, price: 50 },
@@ -30,10 +32,20 @@ const config: SiteConfig = {
     ],
 
     gallery: [
-        { src: '/images/gallery-1.jpg', alt: 'Fade haircut' },
-        { src: '/images/gallery-2.jpg', alt: 'Beard trim' },
-        { src: '/images/gallery-3.jpg', alt: 'Barbershop interior' },
+        {
+            src: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&auto=format&fit=crop',
+            alt: 'Corte degradê',
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&auto=format&fit=crop',
+            alt: 'Barba desenhada',
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop',
+            alt: 'Ambiente da barbearia',
+        },
     ],
+
 
     contact: {
         whatsappMessage: 'Olá! Quero agendar um horário na barbearia.',
