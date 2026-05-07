@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react'
 import type { ServiceItem } from '../types/config'
 
+export type BookingStatus = 'pending' | 'completed' | 'no_show'
+
 export interface Booking {
     id: string
     clientName: string
@@ -8,6 +10,7 @@ export interface Booking {
     service: ServiceItem
     date: string
     time: string
+    status: BookingStatus
     createdAt: string
 }
 
@@ -28,10 +31,11 @@ function saveBookings(bookings: Booking[]): void {
 export function useBooking() {
     const [bookings, setBookings] = useState<Booking[]>(loadBookings)
 
-    const addBooking = useCallback((data: Omit<Booking, 'id' | 'createdAt'>) => {
+    const addBooking = useCallback((data: Omit<Booking, 'id' | 'createdAt' | 'status'>) => {
         const newBooking: Booking = {
             ...data,
             id: crypto.randomUUID(),
+            status: 'pending',
             createdAt: new Date().toISOString(),
         }
         setBookings(prev => {
@@ -40,6 +44,22 @@ export function useBooking() {
             return updated
         })
         return newBooking
+    }, [])
+
+    const updateStatus = useCallback((id: string, status: BookingStatus) => {
+        setBookings(prev => {
+            const updated = prev.map(b => b.id === id ? { ...b, status } : b)
+            saveBookings(updated)
+            return updated
+        })
+    }, [])
+
+    const deleteBooking = useCallback((id: string) => {
+        setBookings(prev => {
+            const updated = prev.filter(b => b.id !== id)
+            saveBookings(updated)
+            return updated
+        })
     }, [])
 
     const isSlotTaken = useCallback((date: string, time: string): boolean => {
@@ -52,13 +72,5 @@ export function useBooking() {
             .sort((a, b) => a.time.localeCompare(b.time))
     }, [])
 
-    const deleteBooking = useCallback((id: string) => {
-        setBookings(prev => {
-            const updated = prev.filter(b => b.id !== id)
-            saveBookings(updated)
-            return updated
-        })
-    }, [])
-
-    return { bookings, addBooking, isSlotTaken, getBookingsByDate, deleteBooking }
+    return { bookings, addBooking, updateStatus, deleteBooking, isSlotTaken, getBookingsByDate }
 }
