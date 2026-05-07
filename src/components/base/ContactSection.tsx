@@ -58,9 +58,17 @@ export default function ContactSection() {
                     )
                 }
 
-                <p className="text-gray-700 text-xs mt-8">
-                    © {new Date().getFullYear()} {config.business.name} · Desenvolvido por Sant.IA.Go
-                </p>
+                <div className="flex items-center gap-4 mt-8">
+                    <p className="text-gray-700 text-xs">
+                        © {new Date().getFullYear()} {config.business.name} · Desenvolvido por Sant.IA.Go
+                    </p>
+                    <a
+                        href="/admin"
+                        className="text-gray-700 text-xs hover:text-gray-500 transition-colors"
+                    >
+                        Área do profissional
+                    </a>
+                </div>
             </div >
         </section >
     )

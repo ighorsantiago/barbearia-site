@@ -158,8 +158,8 @@ export default function BookingSection() {
                                         disabled={taken}
                                         onClick={() => { setSelectedTime(slot); setStep('form') }}
                                         className={`border rounded-lg py-2 text-sm transition-colors ${taken
-                                                ? 'border-white/5 text-gray-700 cursor-not-allowed'
-                                                : 'border-white/10 text-white hover:border-white/30'
+                                            ? 'border-white/5 text-gray-700 cursor-not-allowed'
+                                            : 'border-white/10 text-white hover:border-white/30'
                                             }`}
                                     >
                                         {slot}
@@ -188,14 +188,24 @@ export default function BookingSection() {
                             type="text"
                             placeholder="Seu nome"
                             value={clientName}
-                            onChange={e => setClientName(e.target.value)}
+                            onChange={e => {
+                                const onlyLetters = e.target.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '')
+                                setClientName(onlyLetters)
+                            }}
                             className="w-full bg-gray-900 border border-white/10 text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/30"
                         />
+
                         <input
                             type="tel"
-                            placeholder="Seu telefone (WhatsApp)"
+                            placeholder="Seu WhatsApp — (21) 99999-9999"
                             value={clientPhone}
-                            onChange={e => setClientPhone(e.target.value)}
+                            onChange={e => {
+                                const digits = e.target.value.replace(/\D/g, '').slice(0, 11)
+                                const masked = digits
+                                    .replace(/^(\d{2})(\d)/, '($1) $2')
+                                    .replace(/(\d{5})(\d)/, '$1-$2')
+                                setClientPhone(masked)
+                            }}
                             className="w-full bg-gray-900 border border-white/10 text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/30"
                         />
 

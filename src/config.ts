@@ -6,7 +6,7 @@ const config: SiteConfig = {
     business: {
         name: 'Barbearia',
         tagline: 'Tradition and style for the modern man',
-        phone: '5521999999999',
+        phone: '5521964777735',
         address: 'Rua Exemplo, 123 — Rio de Janeiro, RJ',
         instagram: 'barbearia',
     },

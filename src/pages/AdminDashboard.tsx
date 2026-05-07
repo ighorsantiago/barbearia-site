@@ -34,11 +34,14 @@ export default function AdminDashboard() {
     const [pwd, setPwd] = useState('')
     const [error, setError] = useState('')
     const [selectedDate, setSelectedDate] = useState(getTodayString())
-    const { getBookingsByDate, updateStatus, deleteBooking } = useBooking()
+
+    const { bookings: allBookings, updateStatus, deleteBooking } = useBooking()
 
     const bookings = useMemo(
-        () => getBookingsByDate(selectedDate),
-        [selectedDate, getBookingsByDate]
+        () => allBookings
+            .filter(b => b.date === selectedDate)
+            .sort((a, b) => a.time.localeCompare(b.time)),
+        [allBookings, selectedDate]
     )
 
     const totalRevenue = useMemo(
