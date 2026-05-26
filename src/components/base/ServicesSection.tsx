@@ -1,12 +1,13 @@
 import config from '../../config'
+import { theme } from '../../themes'
 
 export default function ServicesSection() {
     return (
-        <section id="services" className="py-20 px-4" style={{ backgroundColor: config.theme.primaryColor }}>
+        <section id="services" className="py-20 px-4" style={{ backgroundColor: theme.bgPrimary }}>
             <div className="max-w-5xl mx-auto">
                 <h2
                     className="text-3xl font-bold text-center mb-12"
-                    style={{ color: config.theme.accentColor }}
+                    style={{ color: theme.accent }}
                 >
                     Serviços
                 </h2>
@@ -16,7 +17,7 @@ export default function ServicesSection() {
                         <div
                             key={service.id}
                             className="border border-white/10 rounded-xl px-6 py-5 flex flex-col gap-2 hover:border-white/20 transition-colors"
-                            style={{ backgroundColor: config.theme.primaryColor }}
+                            style={{ backgroundColor: theme.bgPrimary }}
                         >
                             <span className="text-white font-semibold text-lg">
                                 {service.name}
@@ -34,7 +35,7 @@ export default function ServicesSection() {
                                 </span>
                                 <span
                                     className="font-semibold text-sm"
-                                    style={{ color: config.theme.accentColor }}
+                                    style={{ color: theme.accent }}
                                 >
                                     R$ {service.price.toFixed(2).replace('.', ',')}
                                 </span>

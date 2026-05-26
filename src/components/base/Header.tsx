@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import config from '../../config'
+import { theme } from '../../themes'
 
 const navLinks = [
     { label: 'Início', href: '#hero' },
@@ -16,12 +17,12 @@ export default function Header() {
     return (
         <header
             className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 backdrop-blur-sm"
-            style={{ backgroundColor: config.theme.primaryColor + 'ee' }}
+            style={{ backgroundColor: theme.bgPrimary + 'ee' }}
         >
             <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
                 <span
                     className="text-lg font-semibold tracking-wide"
-                    style={{ color: config.theme.accentColor }}
+                    style={{ color: theme.accent }}
                 >
                     {config.business.name}
                 </span>

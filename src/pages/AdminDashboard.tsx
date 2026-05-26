@@ -3,6 +3,7 @@ import { Trash2, Calendar, Phone, User, Clock, LogOut, ChevronLeft, ChevronRight
 import { useBooking } from '../hooks/useBooking'
 import type { BookingStatus } from '../hooks/useBooking'
 import config from '../config'
+import { theme } from '../themes'
 
 function formatDate(dateStr: string): string {
     const [y, m, d] = dateStr.split('-')
@@ -76,7 +77,7 @@ export default function AdminDashboard() {
                 <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 w-full max-w-sm">
                     <h1
                         className="text-xl font-semibold mb-1"
-                        style={{ color: config.theme.accentColor }}
+                        style={{ color: theme.accent }}
                     >
                         {config.business.name}
                     </h1>
@@ -97,7 +98,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={handleLogin}
                         className="w-full py-2 rounded-lg font-semibold text-sm transition-opacity hover:opacity-80"
-                        style={{ background: config.theme.accentColor, color: '#000' }}
+                        style={{ background: theme.accent, color: '#000' }}
                     >
                         Entrar
                     </button>
@@ -109,7 +110,7 @@ export default function AdminDashboard() {
     return (
         <div className="min-h-screen bg-gray-950 text-white">
             <header className="border-b border-gray-800 px-6 py-4 flex items-center gap-3">
-                <Calendar size={18} style={{ color: config.theme.accentColor }} />
+                <Calendar size={18} style={{ color: theme.accent }} />
                 <span className="font-semibold">{config.business.name}</span>
                 <span className="text-gray-500 text-sm ml-auto mr-4">Agendamentos</span>
                 <button
@@ -162,7 +163,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 flex flex-col gap-1">
                         <span className="text-gray-500 text-xs">Lucro do dia</span>
-                        <span className="font-semibold text-lg" style={{ color: config.theme.accentColor }}>
+                        <span className="font-semibold text-lg" style={{ color: theme.accent }}>
                             {formatCurrency(totalRevenue)}
                         </span>
                     </div>
@@ -190,10 +191,10 @@ export default function AdminDashboard() {
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="flex flex-col gap-1.5">
                                         <div className="flex items-center gap-2">
-                                            <Clock size={14} style={{ color: config.theme.accentColor }} />
+                                            <Clock size={14} style={{ color: theme.accent }} />
                                             <span
                                                 className="font-semibold"
-                                                style={{ color: config.theme.accentColor }}
+                                                style={{ color: theme.accent }}
                                             >
                                                 {b.time}
                                             </span>
@@ -219,7 +220,7 @@ export default function AdminDashboard() {
                                             {b.clientPhone}
                                         </div>
 
-                                        <div className="text-sm font-medium mt-1" style={{ color: config.theme.accentColor }}>
+                                        <div className="text-sm font-medium mt-1" style={{ color: theme.accent }}>
                                             {formatCurrency(b.service.price)}
                                         </div>
                                     </div>

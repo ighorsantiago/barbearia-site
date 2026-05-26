@@ -1,4 +1,5 @@
 import config from '../../config'
+import { theme } from '../../themes'
 
 export default function ContactSection() {
     const whatsappUrl = `https://wa.me/${config.business.phone}?text=${encodeURIComponent(config.contact.whatsappMessage)}`
@@ -7,12 +8,12 @@ export default function ContactSection() {
         <section
             id="contact"
             className="py-20 px-4 border-t border-white/10"
-            style={{ backgroundColor: config.theme.primaryColor }}
+            style={{ backgroundColor: theme.bgPrimary }}
         >
             <div className="max-w-2xl mx-auto flex flex-col items-center gap-6 text-center">
                 <h2
                     className="text-3xl font-bold"
-                    style={{ color: config.theme.accentColor }}
+                    style={{ color: theme.accent }}
                 >
                     Contato
                 </h2>
@@ -38,8 +39,8 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="mt-2 px-8 py-3 rounded-full font-semibold text-sm transition-opacity hover:opacity-80"
                     style={{
-                        backgroundColor: config.theme.accentColor,
-                        color: config.theme.primaryColor,
+                        backgroundColor: theme.accent,
+                        color: theme.bgPrimary,
                     }}
                 >
                     Falar no WhatsApp

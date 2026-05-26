@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import config from '../../config'
+import { theme } from '../../themes'
 import { useBooking } from '../../hooks/useBooking'
 import type { ServiceItem } from '../../types/config'
 
@@ -92,12 +93,12 @@ export default function BookingSection() {
         <section
             id="booking"
             className="py-20 px-4"
-            style={{ backgroundColor: config.theme.primaryColor }}
+            style={{ backgroundColor: theme.bgPrimary }}
         >
             <div className="max-w-2xl mx-auto">
                 <h2
                     className="text-3xl font-bold text-center mb-12"
-                    style={{ color: config.theme.accentColor }}
+                    style={{ color: theme.accent }}
                 >
                     Agendamento
                 </h2>
@@ -114,7 +115,7 @@ export default function BookingSection() {
                             >
                                 <div className="flex items-center justify-between">
                                     <span className="text-white font-medium">{service.name}</span>
-                                    <span style={{ color: config.theme.accentColor }} className="text-sm font-semibold">
+                                    <span style={{ color: theme.accent }} className="text-sm font-semibold">
                                         R$ {service.price.toFixed(2).replace('.', ',')}
                                     </span>
                                 </div>
@@ -179,9 +180,9 @@ export default function BookingSection() {
                         <p className="text-gray-400 text-sm">Seus dados para confirmar o agendamento:</p>
 
                         <div className="border border-white/10 rounded-xl px-5 py-4 text-sm text-gray-300 flex flex-col gap-1">
-                            <span><span style={{ color: config.theme.accentColor }}>Serviço:</span> {selectedService?.name}</span>
-                            <span><span style={{ color: config.theme.accentColor }}>Data:</span> {formatDateLabel(selectedDate)}</span>
-                            <span><span style={{ color: config.theme.accentColor }}>Horário:</span> {selectedTime}</span>
+                            <span><span style={{ color: theme.accent }}>Serviço:</span> {selectedService?.name}</span>
+                            <span><span style={{ color: theme.accent }}>Data:</span> {formatDateLabel(selectedDate)}</span>
+                            <span><span style={{ color: theme.accent }}>Horário:</span> {selectedTime}</span>
                         </div>
 
                         <input
@@ -213,7 +214,7 @@ export default function BookingSection() {
                             onClick={handleConfirm}
                             disabled={!clientName || !clientPhone}
                             className="w-full py-3 rounded-full font-semibold text-sm transition-opacity hover:opacity-80 disabled:opacity-30"
-                            style={{ backgroundColor: config.theme.accentColor, color: config.theme.primaryColor }}
+                            style={{ backgroundColor: theme.accent, color: theme.bgPrimary }}
                         >
                             Confirmar e abrir WhatsApp
                         </button>
@@ -229,7 +230,7 @@ export default function BookingSection() {
                     <div className="text-center flex flex-col items-center gap-4">
                         <div
                             className="w-16 h-16 rounded-full flex items-center justify-center text-2xl"
-                            style={{ backgroundColor: config.theme.accentColor + '22' }}
+                            style={{ backgroundColor: theme.accent + '22' }}
                         >
                             ✓
                         </div>
@@ -238,7 +239,7 @@ export default function BookingSection() {
                         <button
                             onClick={handleReset}
                             className="mt-4 px-6 py-2 rounded-full text-sm font-semibold hover:opacity-80 transition-opacity"
-                            style={{ backgroundColor: config.theme.accentColor, color: config.theme.primaryColor }}
+                            style={{ backgroundColor: theme.accent, color: theme.bgPrimary }}
                         >
                             Novo agendamento
                         </button>

@@ -1,16 +1,17 @@
 import config from '../../config'
+import { theme } from '../../themes'
 
 export default function GallerySection() {
     return (
         <section
             id="gallery"
             className="py-20 px-4"
-            style={{ backgroundColor: config.theme.primaryColor }}
+            style={{ backgroundColor: theme.bgPrimary }}
         >
             <div className="max-w-5xl mx-auto">
                 <h2
                     className="text-3xl font-bold text-center mb-12"
-                    style={{ color: config.theme.accentColor }}
+                    style={{ color: theme.accent }}
                 >
                     Galeria
                 </h2>

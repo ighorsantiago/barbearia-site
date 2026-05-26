@@ -1,4 +1,5 @@
 import config from '../../config'
+import { theme } from '../../themes'
 
 export default function HeroSection() {
     function scrollToBooking() {
@@ -9,7 +10,7 @@ export default function HeroSection() {
         <section
             id="hero"
             className="relative min-h-screen flex items-center justify-center text-center px-4"
-            style={{ backgroundColor: config.theme.primaryColor }}
+            style={{ backgroundColor: theme.bgPrimary }}
         >
             {config.hero.backgroundImage && (
                 <div
@@ -31,8 +32,8 @@ export default function HeroSection() {
                     onClick={scrollToBooking}
                     className="mt-2 px-8 py-3 rounded-full font-semibold text-sm tracking-wide transition-opacity hover:opacity-80"
                     style={{
-                        backgroundColor: config.theme.accentColor,
-                        color: config.theme.primaryColor,
+                        backgroundColor: theme.accent,
+                        color: theme.bgPrimary,
                     }}
                 >
                     {config.hero.ctaText}
